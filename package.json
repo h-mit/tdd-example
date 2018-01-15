@@ -1,0 +1,16 @@
+{
+  "name": "tdd-js-example",
+  "version": "0.0.1",
+  "repository": "git@github.com:h-mit/tdd-js-example.git",
+  "author": "Hiroshi MITANI <hmitani0429@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --config test/jest.config.js --coverage",
+    "dev": "parcel index.html"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.1.0",
+    "parcel-bundler": "^1.4.1"
+  }
+}
