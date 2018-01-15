@@ -7,7 +7,15 @@ class Dollar {
    * @param {number} amount ドル
    */
   constructor (amount) {
-    this.amount = amount
+    /** @private */
+    this.amount_ = amount
+  }
+
+  /**
+   * `amount_` のゲッター
+   */
+  get amount () {
+    return this.amount_
   }
   
   /**
@@ -16,7 +24,7 @@ class Dollar {
    * @returns {Dollar} 新しい `Dollar` インスタンスを返す
    */
   times (multiplier) {
-    return new Dollar(this.amount * multiplier)
+    return new Dollar(this.amount_ * multiplier)
   }
 
   /**
@@ -25,7 +33,7 @@ class Dollar {
    * @returns {boolean} 等価であれば `true` を返す
    */
   equals (object) {
-    return this.amount === object.amount
+    return this.amount_ === object.amount
   }
 }
 

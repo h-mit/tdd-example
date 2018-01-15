@@ -1,5 +1,4 @@
-const greet = (msg) => {
-  console.log(msg)
-}
+import Dollar from './Dollar'
 
-greet('hello world')
+const five = new Dollar(5)
+console.log(five.times(2).amount)
