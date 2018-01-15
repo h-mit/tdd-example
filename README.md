@@ -13,4 +13,7 @@ yarn dev
 
 # テスト
 yarn test
+
+# ドキュメントの生成
+yarn doc
 ```
