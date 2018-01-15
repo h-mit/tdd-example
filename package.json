@@ -5,7 +5,7 @@
   "author": "Hiroshi MITANI <hmitani0429@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest --config test/jest.config.js --coverage",
+    "test": "jest --config test/jest.config.js",
     "dev": "parcel index.html"
   },
   "devDependencies": {
