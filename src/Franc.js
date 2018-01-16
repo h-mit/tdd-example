@@ -1,10 +1,10 @@
 /**
- * ドルを扱うクラス
+ * フランを扱うクラス
  */
-class Dollar {
+class Franc {
   /**
-   * ドルを指定して初期化する
-   * @param {number} amount ドル
+   * フランを指定して初期化する
+   * @param {number} amount フラン
    */
   constructor (amount) {
     /** @private */
@@ -15,19 +15,19 @@ class Dollar {
   get amount () {
     return this.amount_
   }
-  
+
   /**
-   * ドルの乗算を行うメソッド
+   * フランの乗算を行うメソッド
    * @param {number} multiplier 乗算する数値
-   * @returns {Dollar} 新しい `Dollar` インスタンスを返す
+   * @returns {Franc} 新しい `Franc` インスタンスを返す
    */
   times (multiplier) {
-    return new Dollar(this.amount_ * multiplier)
+    return new Franc(this.amount_ * multiplier)
   }
 
   /**
    * 等価比較を行うメソッド
-   * @param {Dollar} object 比較対象の `Dollar` インスタンス
+   * @param {Franc} object 比較対象の `Franc` インスタンス
    * @returns {boolean} 等価であれば `true` を返す
    */
   equals (object) {
@@ -35,4 +35,4 @@ class Dollar {
   }
 }
 
-export default Dollar
+export default Franc

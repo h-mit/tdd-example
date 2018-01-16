@@ -6,7 +6,6 @@ describe('Dollar', () => {
 
   /** @test {Dollar#times} */
   test('times()', () => {
-    let product
     // 5ドルに2を掛けると10ドルのインスタンスを返す
     expect(five.times(2).equals(new Dollar(10))).toBeTruthy()
     // 5ドルに3を掛けると15ドルのインスタンスを返す
