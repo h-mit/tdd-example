@@ -6,17 +6,17 @@ describe('Franc', () => {
 
   /** @test {Franc#times} */
   test('times()', () => {
-    // 5ドルに2を掛けると10ドルのインスタンスを返す
+    // 5フランに2を掛けると10フランのインスタンスを返す
     expect(five.times(2).equals(new Franc(10))).toBeTruthy()
-    // 5ドルに3を掛けると15ドルのインスタンスを返す
+    // 5フランに3を掛けると15フランのインスタンスを返す
     expect(five.times(3).equals(new Franc(15))).toBeTruthy()
   })
 
   /** @test {Franc#equals} */
   test('equals()', () => {
-    // 5ドルと5ドルの等価比較でtrueを返す
+    // 5フランと5フランの等価比較でtrueを返す
     expect(five.equals(new Franc(5))).toBeTruthy()
-    // 5ドルと6ドルの等価比較でfalseを返す
+    // 5フランと6フランの等価比較でfalseを返す
     expect(five.equals(new Franc(6))).toBeFalsy()
   })
 })

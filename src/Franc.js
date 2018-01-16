@@ -1,19 +1,15 @@
+import Money from './Money'
+
 /**
  * フランを扱うクラス
  */
-class Franc {
+class Franc extends Money {
   /**
-   * フランを指定して初期化する
-   * @param {number} amount フラン
+   * フランの金額を指定して初期化する
+   * @param {number} amount フランの金額
    */
   constructor (amount) {
-    /** @private */
-    this.amount_ = amount
-  }
-
-  /** `amount_` のゲッター */
-  get amount () {
-    return this.amount_
+    super(amount)
   }
 
   /**
@@ -23,15 +19,6 @@ class Franc {
    */
   times (multiplier) {
     return new Franc(this.amount_ * multiplier)
-  }
-
-  /**
-   * 等価比較を行うメソッド
-   * @param {Franc} object 比較対象の `Franc` インスタンス
-   * @returns {boolean} 等価であれば `true` を返す
-   */
-  equals (object) {
-    return this.amount_ === object.amount
   }
 }
 

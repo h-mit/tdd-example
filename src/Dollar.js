@@ -1,21 +1,17 @@
+import Money from './Money'
+
 /**
  * ドルを扱うクラス
  */
-class Dollar {
+class Dollar extends Money {
   /**
-   * ドルを指定して初期化する
-   * @param {number} amount ドル
+   * ドルの金額を指定して初期化する
+   * @param {number} amount ドルの金額
    */
   constructor (amount) {
-    /** @private */
-    this.amount_ = amount
+    super(amount)
   }
 
-  /** `amount_` のゲッター */
-  get amount () {
-    return this.amount_
-  }
-  
   /**
    * ドルの乗算を行うメソッド
    * @param {number} multiplier 乗算する数値
@@ -23,15 +19,6 @@ class Dollar {
    */
   times (multiplier) {
     return new Dollar(this.amount_ * multiplier)
-  }
-
-  /**
-   * 等価比較を行うメソッド
-   * @param {Dollar} object 比較対象の `Dollar` インスタンス
-   * @returns {boolean} 等価であれば `true` を返す
-   */
-  equals (object) {
-    return this.amount_ === object.amount
   }
 }
 
