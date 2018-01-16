@@ -1,4 +1,5 @@
-import Dollar from './Dollar'
+import { Money } from './Money'
 
-const five = new Dollar(5)
-console.log(five.times(2).amount)
+const five = Money.dollar(5)
+
+console.log(five)
