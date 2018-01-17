@@ -3,9 +3,9 @@
  */
 class Money {
   /**
-   * 金額を指定して初期化する
+   * 金額と通貨名称を指定して初期化する
    * @param {number} amount 金額
-   * @param {string} currency 金額名称
+   * @param {string} currency 通貨名称
    */
   constructor (amount, currency) {
     /** @protected */
@@ -47,7 +47,7 @@ class Money {
   }
 
   /**
-   * 通貨の乗算を行うメソッド
+   * 乗算を行うメソッド
    * @param {number} multiplier 乗算する数値
    * @returns {Dollar} 新しい `Money` インスタンスを返す
    */
