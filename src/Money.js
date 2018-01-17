@@ -5,10 +5,12 @@ export class Money {
   /**
    * 金額を指定して初期化する
    * @param {number} amount 金額
+   * @param {string} currency 金額名称
    */
-  constructor (amount) {
+  constructor (amount, currency) {
     /** @protected */
     this.amount_ = amount
+    this.currency_ = currency
   }
 
   /**
@@ -18,7 +20,7 @@ export class Money {
    * @returns {Dollar} 新しい `Dollar` インスタンスを返す
    */
   static dollar (amount) {
-    return new Dollar(amount)
+    return new Dollar(amount, 'USD')
   }
 
   /**
@@ -28,7 +30,7 @@ export class Money {
    * @returns {Franc} 新しい `Franc` インスタンスを返す
    */
   static franc (amount) {
-    return new Franc(amount)
+    return new Franc(amount, 'CHF')
   }
 
   /** `amount_` のゲッター */
@@ -37,13 +39,20 @@ export class Money {
   }
 
   /**
-   * 通貨の乗算を行う抽象メソッド
-   * このメソッドはサブクラスでオーバーライドする必要がある
-   * @abstract
+   * 通貨名称を返すメソッド
+   * @returns {string} 通貨名称
+   */
+  currency () {
+    return this.currency_
+  }
+
+  /**
+   * 通貨の乗算を行うメソッド
    * @param {number} multiplier 乗算する数値
+   * @returns {Dollar} 新しい `Money` インスタンスを返す
    */
   times (multiplier) {
-    throw new Error('Not Implemented')
+    return new Money(this.amount_ * multiplier, this.currency_)
   }
 
   /**
@@ -52,8 +61,8 @@ export class Money {
    * @returns {boolean} 等価であれば `true` を返す
    */
   equals (object) {
-    // クラスが一致し、かつ金額が一致する場合に `true` を返す
-    return this.amount_ === object.amount && this.constructor.name === object.constructor.name
+    // 通貨名称が一致し、かつ金額が一致する場合に `true` を返す
+    return this.amount_ === object.amount && this.currency() === object.currency()
   }
 }
 
@@ -64,18 +73,10 @@ export class Dollar extends Money {
   /**
    * ドルの金額を指定して初期化する
    * @param {number} amount ドルの金額
+   * @param {string} currency ドルの通貨名称
    */
-  constructor (amount) {
-    super(amount)
-  }
-
-  /**
-   * ドルの乗算を行うメソッド
-   * @param {number} multiplier 乗算する数値
-   * @returns {Dollar} 新しい `Dollar` インスタンスを返す
-   */
-  times (multiplier) {
-    return new Dollar(this.amount_ * multiplier)
+  constructor (amount, currency) {
+    super(amount, currency)
   }
 }
 
@@ -86,17 +87,9 @@ export class Franc extends Money {
   /**
    * フランの金額を指定して初期化する
    * @param {number} amount フランの金額
+   * @param {string} currency フランの通貨名称
    */
-  constructor (amount) {
-    super(amount)
-  }
-
-  /**
-   * フランの乗算を行うメソッド
-   * @param {number} multiplier 乗算する数値
-   * @returns {Franc} 新しい `Franc` インスタンスを返す
-   */
-  times (multiplier) {
-    return new Franc(this.amount_ * multiplier)
+  constructor (amount, currency) {
+    super(amount, currency)
   }
 }
