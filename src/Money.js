@@ -1,7 +1,7 @@
 /**
  * 通貨を扱うスーパークラス
  */
-export class Money {
+class Money {
   /**
    * 金額を指定して初期化する
    * @param {number} amount 金額
@@ -14,23 +14,23 @@ export class Money {
   }
 
   /**
-   * `Dollar` クラスのインスタンスを生成する Factory Method
+   * ドルのインスタンスを生成する Factory Method
    * @static
    * @param {number} amount ドルの金額
-   * @returns {Dollar} 新しい `Dollar` インスタンスを返す
+   * @returns {Money} 新しい `Money` インスタンスを返す
    */
   static dollar (amount) {
-    return new Dollar(amount, 'USD')
+    return new Money(amount, 'USD')
   }
 
   /**
-   * `Franc` クラスのインスタンスを生成する Factory Method
+   * フランのインスタンスを生成する Factory Method
    * @static
    * @param {number} amount フランの金額
-   * @returns {Franc} 新しい `Franc` インスタンスを返す
+   * @returns {Money} 新しい `Money` インスタンスを返す
    */
   static franc (amount) {
-    return new Franc(amount, 'CHF')
+    return new Money(amount, 'CHF')
   }
 
   /** `amount_` のゲッター */
@@ -66,30 +66,4 @@ export class Money {
   }
 }
 
-/**
- * ドルを扱うクラス
- */
-export class Dollar extends Money {
-  /**
-   * ドルの金額を指定して初期化する
-   * @param {number} amount ドルの金額
-   * @param {string} currency ドルの通貨名称
-   */
-  constructor (amount, currency) {
-    super(amount, currency)
-  }
-}
-
-/**
- * フランを扱うクラス
- */
-export class Franc extends Money {
-  /**
-   * フランの金額を指定して初期化する
-   * @param {number} amount フランの金額
-   * @param {string} currency フランの通貨名称
-   */
-  constructor (amount, currency) {
-    super(amount, currency)
-  }
-}
+export default Money
